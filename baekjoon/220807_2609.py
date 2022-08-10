@@ -10,9 +10,18 @@ print(math.lcm(n, m))
 '''
 # 유클리드 호제법
 # 재귀를 이용해 구현
+n, m = map(int, input().split())  # n, m 입력받음
+'''
+if n >= m:
+    a = n
+    b = m
 
-n, m = map(int, input().split())
-    
+else:
+    a = m
+    b = n
+'''
+# 큰 수 a를 작은 수 b로 나누어 떨어지면 b는 a와 b의 최대공약수
+# 나누어 떨어지지 않는다면 a와 b의 최대 공약수는 a / b 나머지와 b의 최대공약수와 같다
 def gcd(a, b):
     
     if a % b == 0:
@@ -22,4 +31,4 @@ def gcd(a, b):
         return gcd(b, a % b)
     
 print(gcd(n, m))
-print(int(n * m / gcd(n, m))) # 최소공배수 
+print(int(n * m / gcd(n, m)))  # 최소공배수는 두 수를 서로소가 될 때까지 나눈 수들과 그 서로소의 곱
